@@ -5,43 +5,72 @@ var view_item = document.getElementById("view_item");
 document.addEventListener("DOMContentLoaded", function() {
     loadTasks();
 });
+
+function getValueInLocalStorage(key) {
+    return localStorage.getItem(key);
+}
+
+function setValueInLocalStorage(key, value) {
+    localStorage.setItem(key, value);
+}
+
 function saveTasks() {
     var tasks = [];
     var taskElements = document.querySelectorAll(".item h1");
     taskElements.forEach(function(taskElement) {
         tasks.push(taskElement.textContent);
     });
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    // localStorage.setItem("tasks", JSON.stringify(tasks));
+    setValueInLocalStorage("keys", JSON.stringify(tasks));
 }
 
 function loadTasks() {
-    var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    // var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    var tasks = JSON.parse(getValueInLocalStorage("keys")) || [];
     tasks.forEach(function(task) {
-        view_item.innerHTML += `
-            <div class="flex bg-gray-200 mt-3 p-3 rounded-lg item" style="align-items: center;">
-                <h1 class="w-4/5">${task}</h1>
-                <div class="flex gap-2 sm:gap-3">
-                    <button class="bg-violet-500 text-white px-5 rounded-lg h-7" onclick="editItem(this.parentNode.parentNode)">Edit</button>
-                    <button class="bg-violet-500 text-white px-5 rounded-lg h-7" onclick="deleteItem(this.parentNode.parentNode)">Delete</button>
-                </div>
-            </div>
-        `;
+        viewItem(task)
     });
+}
+
+function viewItem(task_value){
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('flex', 'bg-gray-200', 'mt-3', 'p-3', 'rounded-lg', 'item');
+
+    let h1 = document.createElement('h1');
+    h1.classList.add('w-4/5');
+    h1.textContent = `${task_value}`;
+
+    let div = document.createElement('div');
+    div.classList.add('flex', 'gap-2', 'sm:gap-3');
+
+    let btnEdit = document.createElement('button');
+    btnEdit.classList.add('px-5', 'bg-violet-500', 'text-white', 'rounded-lg', 'h-7');
+    btnEdit.textContent = "Edit";
+    btnEdit.onclick = function() {
+        editItem(this.parentNode.parentNode);
+    };
+
+    let btnDelete = document.createElement('button');
+    btnDelete.classList.add('px-5', 'bg-violet-500', 'text-white', 'rounded-lg', 'h-7');
+    btnDelete.textContent = "Delete";
+    btnDelete.onclick = function() {
+        deleteItem(this.parentNode.parentNode);
+    };
+
+    view_item.appendChild(newDiv);
+
+    newDiv.appendChild(h1);
+    newDiv.appendChild(div);
+
+    div.appendChild(btnEdit);
+    div.appendChild(btnDelete);
 }
 
 function addItem() {
     if (add_value.value == "") {
         alert("Please enter a task");
     } else {
-        view_item.innerHTML += `
-            <div class="flex bg-gray-200 mt-3 p-3 rounded-lg item" style="align-items: center;">
-                <h1 class="w-4/5">${add_value.value}</h1>
-                <div class="flex gap-2 sm:gap-3">
-                    <button class="bg-violet-500 text-white px-5 rounded-lg h-7" onclick="editItem(this.parentNode.parentNode)">Edit</button>
-                    <button class="bg-violet-500 text-white px-5 rounded-lg h-7" onclick="deleteItem(this.parentNode.parentNode)">Delete</button>
-                </div>
-            </div>
-        `;
+       viewItem(add_value.value);
         // Save to localStorage
         saveTasks();
     }
