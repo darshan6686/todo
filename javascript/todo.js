@@ -1,38 +1,9 @@
+// import { getValueForLocalStorage, setValueForLocalStorage } from "./storage";
+
 var add_value = document.getElementById("add_value");
-var view_item = document.getElementById("view_item");
+var view_task = document.getElementById("view_task");
 
-// Load tasks from localStorage when the page loads
-document.addEventListener("DOMContentLoaded", function() {
-    loadTasks();
-});
-
-function getValueInLocalStorage(key) {
-    return localStorage.getItem(key);
-}
-
-function setValueInLocalStorage(key, value) {
-    localStorage.setItem(key, value);
-}
-
-function saveTasks() {
-    var tasks = [];
-    var taskElements = document.querySelectorAll(".item h1");
-    taskElements.forEach(function(taskElement) {
-        tasks.push(taskElement.textContent);
-    });
-    // localStorage.setItem("tasks", JSON.stringify(tasks));
-    setValueInLocalStorage("keys", JSON.stringify(tasks));
-}
-
-function loadTasks() {
-    // var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    var tasks = JSON.parse(getValueInLocalStorage("keys")) || [];
-    tasks.forEach(function(task) {
-        viewItem(task)
-    });
-}
-
-function viewItem(task_value){
+function createTask(task_value){
     const newDiv = document.createElement('div');
     newDiv.classList.add('flex', 'bg-gray-200', 'mt-3', 'p-3', 'rounded-lg', 'item');
 
@@ -57,20 +28,22 @@ function viewItem(task_value){
         deleteItem(this.parentNode.parentNode);
     };
 
-    view_item.appendChild(newDiv);
-
+    
     newDiv.appendChild(h1);
     newDiv.appendChild(div);
-
+    
     div.appendChild(btnEdit);
     div.appendChild(btnDelete);
+
+    view_task.appendChild(newDiv);
+    return newDiv
 }
 
-function addItem() {
+function addTask() {
     if (add_value.value == "") {
         alert("Please enter a task");
     } else {
-       viewItem(add_value.value);
+        createTask(add_value.value);
         // Save to localStorage
         saveTasks();
     }
