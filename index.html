@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="bg-gray-200">
-    <div class="container mx-auto p-3 sm:p-0">
-        <div class="w-full sm:w-4/5 md:w-3/5 xl:w-2/5 bg-white shadow-xl p-3 sm:p-5 mx-auto mt-10">
+    <div class="container p-3 sm:p-0 float-right xl:float-none">
+        <div class="w-full sm:w-4/5 md:w-3/5 xl:w-2/5 bg-white shadow-xl p-3 sm:p-5 mt-10 md:mr-10 lg:mr-40 xl:mr-56 mx-auto">
             <h1 class="text-center text-3xl font-bold mt-10">TO DO LIST</h1>
 
             <div class="mt-7">
@@ -32,6 +33,73 @@
                     <button class="border border-black bg-gray-200 px-10 sm:px-14 py-1 rounded-lg" onclick="addTask()">Add</button>
                 </div>
             </div>
+
+            <aside class="">
+                <div class="hidden sm:block shadow-lg bg-gray-300 w-48 lg:w-56 xl:w-80 p-5 min-h-screen fixed top-0 left-0 space-y-3 pt-12">
+                   <div>
+                        <details>
+                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
+                                <h1>Table</h1>
+                            </summary>
+                            <ul class="p-2 space-y-1 list-disc pl-8">
+                                <li>Dining Table</li>
+                                <li>Coffee Table</li>
+                                <li>Outdoor Table</li>
+                                <li>Nesting Table</li>
+                            </ul>
+                        </details>
+                   </div>
+                   <div>
+                        <details>
+                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
+                                <h1>Chair</h1>
+                            </summary>
+                            <ul class="p-2 space-y-1 list-disc pl-8">
+                                <li>Adirondack Chair</li>
+                                <li>Barcelona Chair</li>
+                                <li>Bentwood Chair</li>
+                                <li>Bergère Chair</li>
+                            </ul>
+                        </details>
+                   </div>
+                   <div>
+                        <details>
+                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
+                                <h1>Bookcase</h1>
+                            </summary>
+                            <ul class="p-2 space-y-1 list-disc pl-8">
+                                <li>Samll Bookcase</li>
+                                <li>Corner Bookcase</li>
+                                <li>Ladder Bookcase</li>
+                            </ul>
+                        </details>
+                   </div>
+                   <div>
+                        <details>
+                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
+                                <h1>Shoes</h1>
+                            </summary>
+                            <ul class="p-2 space-y-1 list-disc pl-8">
+                                <li>Sneakers Shoes</li>
+                                <li>loafers Shoes</li>
+                                <li>ballet Shoes</li>
+                            </ul>
+                        </details>
+                   </div>
+                   <div>
+                        <details>
+                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
+                                <h1>Clothes</h1>
+                            </summary>
+                            <ul class="p-2 space-y-1 list-disc pl-8">
+                                <li>Natural Fabric Clothes</li>
+                                <li>Synthetic Fabrics Clothes</li>
+                                <li> Semi-Synthetic Fabric Clothes</li>
+                            </ul>
+                        </details>
+                   </div>
+                </div>
+            </aside>
 
             <div id="view_task"></div>
         </div>
