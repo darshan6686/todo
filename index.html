@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="bg-gray-200">
-    <div class="container p-3 sm:p-0 float-right xl:float-none">
-        <div class="w-full sm:w-4/5 md:w-3/5 xl:w-2/5 bg-white shadow-xl p-3 sm:p-5 mt-10 md:mr-10 lg:mr-40 xl:mr-56 mx-auto">
+<body class="bg-gray-200 relative">
+    <div class="container p-3 sm:p-5 float-right xl:float-none">
+        <div class="w-full sm:w-4/5 md:w-3/5 xl:w-2/5 bg-white shadow-xl p-3 sm:p-5 md:mr-10 lg:mr-40 xl:mr-56 mx-auto">
             <h1 class="text-center text-3xl font-bold mt-10">TO DO LIST</h1>
 
             <div class="mt-7">
@@ -34,8 +34,10 @@
                 </div>
             </div>
 
+            <div id="view_task"></div>
+
             <aside class="">
-                <div class="hidden sm:block shadow-lg bg-gray-300 w-48 lg:w-56 xl:w-80 p-5 min-h-screen fixed top-0 left-0 space-y-3 pt-12">
+                <div class="hidden sm:block shadow-lg bg-gray-300 w-48 lg:w-56 xl:w-80 p-5 h-[100vh] overflow-scroll absolute left-0 top-0 space-y-3 pt-12">
                    <div>
                         <details>
                             <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
@@ -100,8 +102,6 @@
                    </div>
                 </div>
             </aside>
-
-            <div id="view_task"></div>
         </div>
     </div>
     <script src="./javascript/todo.js"></script>
