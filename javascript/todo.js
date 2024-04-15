@@ -31,3 +31,12 @@ function editItem(item) {
         saveTasks();
     }
 }
+
+function openSidebar(sidebarID){
+    if(sidebarID){
+        document.getElementById('sideBar').style.display = 'block';
+    }
+    else{
+        document.getElementById('sideBar').style.display = 'none';
+    }
+}

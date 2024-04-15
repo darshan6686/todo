@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-gray-200 relative">
-    <div class="container p-3 sm:p-5 float-right xl:float-none">
+    <div class="container p-3 sm:p-5 float-right xl:float-none mt-20 sm:mt-0">
         <div class="w-full sm:w-4/5 md:w-3/5 xl:w-2/5 bg-white shadow-xl p-3 sm:p-5 md:mr-10 lg:mr-40 xl:mr-56 mx-auto">
             <h1 class="text-center text-3xl font-bold mt-10">TO DO LIST</h1>
 
@@ -36,9 +36,16 @@
 
             <div id="view_task"></div>
 
-            <aside class="">
-                <div class="hidden sm:block shadow-lg bg-gray-300 w-48 lg:w-56 xl:w-80 p-5 h-[100vh] overflow-scroll absolute left-0 top-0 space-y-3 pt-12">
-                   <div>
+            <div class="block sm:hidden absolute top-2 bg-white shadow-lg px-3 py-2 rounded-lg cursor-pointer" onclick="openSidebar(true)">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <aside class="hidden sm:block" id="sideBar">
+                <div class="shadow-lg bg-gray-300 w-1/2 sm:w-48 lg:w-56 xl:w-80 p-5 h-[100vh] overflow-scroll absolute left-0 top-0 space-y-3">
+                    <div class="block sm:hidden bg-white float-right shadow-lg px-3 py-2 rounded-lg cursor-pointer" onclick="openSidebar(false)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                   <div class="pt-12">
                         <details>
                             <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
                                 <h1>Table</h1>
