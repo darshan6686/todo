@@ -13,6 +13,13 @@ function addTask() {
 
 function deleteItem(item) {
     item.parentNode.removeChild(item);
+    const categoryText = item.querySelector('h2').textContent;
+    const categoryElements = category_element.querySelectorAll('p');
+    categoryElements.forEach(category => {
+        if (category.textContent === categoryText) {
+            category.remove();
+        }
+    });
     // Save to localStorage
     saveTasks();
 }
@@ -27,6 +34,7 @@ function editItem(item) {
     if ((newText !== null) && (newCat !== null)) {
         item.querySelector("h1").textContent = newText;
         item.querySelector("h2").textContent = newCat;
+        item.querySelector("a"),textContent = newCat;
         // Save to localStorage
         saveTasks();
     }

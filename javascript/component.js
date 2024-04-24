@@ -1,4 +1,5 @@
 var view_task = document.getElementById("view_task");
+var category_element = document.getElementById('category');
 
 function createTask(task_value, category){
     const newDiv = document.createElement('div');
@@ -29,6 +30,13 @@ function createTask(task_value, category){
         deleteItem(this.parentNode.parentNode);
     };
 
+    let p = document.createElement('p');
+    p.classList.add('text-xl', 'cursor-pointer', 'hover:bg-gray-100', 'p-2', 'rounded-lg')
+    
+    let a = document.createElement('a');
+    a.href = `./${category}.html`;
+    a.textContent = `${category}`;
+
     
     newDiv.appendChild(h1);
     newDiv.appendChild(h2);
@@ -37,6 +45,9 @@ function createTask(task_value, category){
     div.appendChild(btnEdit);
     div.appendChild(btnDelete);
 
+    p.appendChild(a)
+
     view_task.appendChild(newDiv);
+    category_element.appendChild(p)
     return newDiv
 }

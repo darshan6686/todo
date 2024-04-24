@@ -10,7 +10,12 @@
 </head>
 
 <body class="bg-gray-200 relative">
-    <div class="container p-3 sm:p-5 float-right xl:float-none mt-20 sm:mt-0">
+    <div class="container p-3 sm:p-5 float-right xl:float-none">
+        <div class="flex gap-2">
+            <div class="flex justify-center items-center sm:hidden bg-white shadow-lg w-10 h-8 rounded-lg cursor-pointer" onclick="openSidebar(true)">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
         <div class="w-full sm:w-4/5 md:w-3/5 xl:w-2/5 bg-white shadow-xl p-3 sm:p-5 md:mr-10 lg:mr-40 xl:mr-56 mx-auto">
             <h1 class="text-center text-3xl font-bold mt-10">TO DO LIST</h1>
 
@@ -35,77 +40,15 @@
             </div>
 
             <div id="view_task"></div>
-
-            <div class="block sm:hidden absolute top-2 bg-white shadow-lg px-3 py-2 rounded-lg cursor-pointer" onclick="openSidebar(true)">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+        </div>
 
             <aside class="hidden sm:block" id="sideBar">
-                <div class="shadow-lg bg-gray-300 w-1/2 sm:w-48 lg:w-56 xl:w-80 p-5 h-[100vh] overflow-scroll absolute left-0 top-0 space-y-3">
+                <div class="shadow-lg bg-gray-300 w-1/2 sm:w-48 lg:w-56 xl:w-80 p-5 h-[100vh] overflow-scroll absolute left-0 top-0">
                     <div class="block sm:hidden bg-white float-right shadow-lg px-3 py-2 rounded-lg cursor-pointer" onclick="openSidebar(false)">
                         <i class="fa-solid fa-xmark"></i>
                     </div>
                    <div class="pt-12">
-                        <details>
-                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
-                                <h1>Table</h1>
-                            </summary>
-                            <ul class="p-2 space-y-1 list-disc pl-8">
-                                <li>Dining Table</li>
-                                <li>Coffee Table</li>
-                                <li>Outdoor Table</li>
-                                <li>Nesting Table</li>
-                            </ul>
-                        </details>
-                   </div>
-                   <div>
-                        <details>
-                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
-                                <h1>Chair</h1>
-                            </summary>
-                            <ul class="p-2 space-y-1 list-disc pl-8">
-                                <li>Adirondack Chair</li>
-                                <li>Barcelona Chair</li>
-                                <li>Bentwood Chair</li>
-                                <li>Bergère Chair</li>
-                            </ul>
-                        </details>
-                   </div>
-                   <div>
-                        <details>
-                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
-                                <h1>Bookcase</h1>
-                            </summary>
-                            <ul class="p-2 space-y-1 list-disc pl-8">
-                                <li>Samll Bookcase</li>
-                                <li>Corner Bookcase</li>
-                                <li>Ladder Bookcase</li>
-                            </ul>
-                        </details>
-                   </div>
-                   <div>
-                        <details>
-                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
-                                <h1>Shoes</h1>
-                            </summary>
-                            <ul class="p-2 space-y-1 list-disc pl-8">
-                                <li>Sneakers Shoes</li>
-                                <li>loafers Shoes</li>
-                                <li>ballet Shoes</li>
-                            </ul>
-                        </details>
-                   </div>
-                   <div>
-                        <details>
-                            <summary class="flex justify-between text-xl cursor-pointer list-none hover:bg-gray-100 p-2 rounded-lg" style="align-items: center;">
-                                <h1>Clothes</h1>
-                            </summary>
-                            <ul class="p-2 space-y-1 list-disc pl-8">
-                                <li>Natural Fabric Clothes</li>
-                                <li>Synthetic Fabrics Clothes</li>
-                                <li> Semi-Synthetic Fabric Clothes</li>
-                            </ul>
-                        </details>
+                        <div class="space-y-3" id="category"></div>
                    </div>
                 </div>
             </aside>
